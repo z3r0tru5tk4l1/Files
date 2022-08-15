@@ -37,6 +37,16 @@ namespace Files.Uwp.Dialogs
         {
             var itemTypes = await ShellNewEntryExtensions.GetNewContextMenuEntries();
             await ViewModel.AddItemsToList(itemTypes); // TODO(i): This is a very cheap way of doing it, consider adding a service to retrieve the itemTypes list.
+            ListViewItem file = AddItemsListView.ContainerFromIndex(0) as ListViewItem;
+            if (file != null)
+                file.Focus(FocusState.Programmatic);
+            else
+                await Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Low, () =>
+                {
+                    file = AddItemsListView.ContainerFromIndex(0) as ListViewItem;
+                    if (file != null)
+                        file.Focus(FocusState.Programmatic);
+                });
         }
     }
 }
