@@ -45,7 +45,7 @@
                 <ListView.ItemTemplate>
                     <DataTemplate x:DataType="vm:AddItemDialogListItemViewModel">
                         <Grid Height="50">
-                            <StackPanel VerticalAlignment="Center" Orientation="Horizontal">
+                            <StackPanel VerticalAlignment="Center" Orientation="Horizontal" Loaded="AddItemListViewItem_Loaded">
                                 <Grid Margin="0,0,10,0" VerticalAlignment="Center">
                                     <Viewbox
                                         x:Name="IconRoot"
